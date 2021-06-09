@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Music player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- <section id="music-player"> -->
+    <div class="main">
+        
+        <p id='logo'><i class="fa fa-music" aria-hidden="true"></i>Music</p>
+        
+       <!-- Left part -->
+       <div class="left">
+        
+           <!-- song image -->
+           <img  id="track_image">
+        <div class="volume">
+           <p id="volume_show">90</p>
+           <i class="fa fa-volume-up" aria-hidden="true" id="volume_icon" onclick="mute_sound()"></i>
+           <input type="range" min="0" max="100" value="90" onchange="volume_change()"
+            id="volume">
+        </div>
+       </div>
+
+        <!-- Right part -->
+        
+        <div class="right">
+            
+            <div class="show_song_no">
+                <p id="present">1</p>
+                <p>/</p>
+                <p id="total">5</p>
+            </div>
+
+            <!--- song title --->
+            <div class="content">
+            <p id="title">title.mp3</p>
+            <p id="artist">artist name</p>
+            </div> 
+
+            <!--middle part-->
+            <div class="middle">
+                <button onclick="previous_song()" id="pre" >
+                    <i class="fa fa-step-backward" aria-hidden="true"></i>
+                </button>
+                <button onclick="justplay()" id="play">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                </button>
+                <button onclick="next_song()" id="next" >
+                    <i class="fa fa-step-forward" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <!-- song duration part -->
+            <div class="duration">
+                <input type="range" min="0" max="100" value="0" id="duration_slider" onchange="change_duration()">
+            </div>
+           <button id="auto" onclick="autoplay_switch()"> Auto play <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
+           </button>
+           
+        </div>
+        <button class="feedback" ><i class="fa fa-comment-o" aria-hidden="true"></i></button>
+    
+        <!-- popup-form -->
+        <div class="popup-container hide" >
+            <form class="popup-form hide" id="form" method="POST" >
+                <h1>FeedBack</h1>
+                <div class="form-control">
+                    <input class="input-field" type="text" id="username" placeholder="Enter Username">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <input class="input-field" type="text" id="email" placeholder="Enter email">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <textarea class="input-field" name="textarea" id="textarea" cols="30" rows="10"></textarea>
+                    <small>Error Message</small>
+                </div>
+                <button class="input-field submit-btn" >Send</button>
+                <!-- close btn -->
+                <div class="close-btn">&times;</div>
+            </form>
+        </div>
+   
+    <!---add javascript file --->
+    <script src="./js/script.js"></script>
+
+</body>
+</html>
